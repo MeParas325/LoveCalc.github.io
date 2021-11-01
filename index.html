@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Calculator</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            background: url("Love2.jpg");
+            background-size: 100% 170%;
+        }
+        header{
+            background-color: white;
+            width: 40rem;
+            height: 20rem;
+            position: relative;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+
+        header .card-header{
+            background-color: red;
+            color: white;
+            text-align: center;
+            line-height: 2rem;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        header .card{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+        }
+
+        header .card-footer{
+            position: absolute;
+            bottom: 0;
+            color: white;
+            background-color: pink;
+            width: 100%;
+            text-align: center;
+            line-height: 2rem;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+
+        #LovePer{
+            text-align: center;
+            width: 100px;
+        }
+
+        .card-body{
+            margin: 10px ;
+        }
+
+        button{
+            margin: 10px;
+        }
+
+        button:hover{
+            cursor: pointer;
+            background-color: orange;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .heading{
+            width: 100%;
+            text-align: center;
+        }
+
+        .heading h2{
+            color: red;
+        }
+
+        .imgbox{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 100%;
+            height: 60px;
+            margin: -25px;
+            text-align: center;
+        }
+
+        .imgbox img{
+            position: absolute;
+            width: 20%;
+            height: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="card-header">LOVE CALCULATOR</div>
+        <div class="card">
+            <div class="imgbox">
+                <img src="heart.png" alt="">
+                </div>
+            <div class="card-body">
+                <div class="heading">
+                   <h2>Calculate Your Love here</h2>
+                </div>
+                <form>
+                    <input type="text" id="fname" placeholder="Your Name">
+                    <span>+</span>
+                    <input type="text" id="lname" placeholder="Love Name">
+                </form>
+            </div>
+            <button onclick="calLovePer()">CalCulate</button>
+            <input id= "LovePer" type="text" placeholder="Love Percentage">
+            <div class="card-footer">God bless your relationship</div>
+        </div>
+    </header>
+    <script>
+        var i = 0;
+        function calLovePer(){
+            var fname = document.getElementById("fname").value;
+            var lname = document.getElementById("lname").value;
+            if(fname.length<=2 || lname.length<=2){
+                alert("Your or your lovers name is too short!Please enter it correctly");
+            }
+            else if((!isNaN(fname)) || (!isNaN(lname))){
+                alert("Numbers are not allowed");
+            }
+            else{
+                if(i == 1){
+                    alert("You cannot calculate two times!Please refresh the page and Enter other names...")
+                }
+                else{
+                    var loveVar = Math.random()*100;
+                    loveVar = Math.floor(loveVar);
+                    document.getElementById("LovePer").value = loveVar+"%";
+                    i = i+1;
+                }
+            }
+            
+        }
+    </script>
+</body>
+</html>
